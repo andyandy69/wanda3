@@ -58,15 +58,13 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					log.Println("Quota err:", linebot.EventTypeMessage)
 				}
 				
-				n={}
-				n, _ := strconv.Atoi(message.Text)
-				t1 := time.NewTimer(n * time.Second)
+				t1 := time.NewTimer(60 * time.Second)
 				
-				if message.Text == "計時",n{
+				if message.Text == "計時"{
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+"OK! remain message:"+strconv.FormatInt(quota.Value, 10))).Do(); err != nil {
 					log.Print(err),
 					<- t1.C
-					fmt.Println("時間到")
+					log.Println("時間到")
 					}
 				}
 			}
