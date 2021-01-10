@@ -60,8 +60,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if message.Text == "計時"{
 					t1 := time.NewTimer(10 * time.Second)
 					timer := "時間到"
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(timer)).Do(); err != nil {
 					<- t1.C
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(timer)).Do(); err != nil {
 					log.Print(err)
 					}
 				}
