@@ -18,6 +18,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
@@ -56,9 +57,16 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				}else {
 					log.Println("Quota err:", linebot.EventTypeMessage)
 				}
-				if message.Text == "你好"{
+				
+				n={}
+				n, _ := strconv.Atoi(message.Text)
+				t1 := time.NewTimer(n * time.Second)
+				
+				if message.Text == "計時",n{
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+"OK! remain message:"+strconv.FormatInt(quota.Value, 10))).Do(); err != nil {
-					log.Print(err)
+					log.Print(err),
+					<- t1.C
+					fmt.Println("時間到")
 					}
 				}
 			}
