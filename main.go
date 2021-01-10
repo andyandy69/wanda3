@@ -56,8 +56,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					log.Println("Quota err:", err)
 				}else {
 					log.Println("Quota err:", linebot.EventTypeMessage)
-				}
-				
+				}				
 // 				t1 := time.NewTimer(10 * time.Second)
 // 				timer := "時間到"
 				if message.Text == "計時"{
