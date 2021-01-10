@@ -51,12 +51,12 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				quota, err := bot.GetMessageQuota().Do()
-				if err != nil {
-					log.Println("Quota err:", err)
-				}else {
-					log.Println("Quota err:", linebot.EventTypeMessage)
-				}								
+// 				quota, err := bot.GetMessageQuota().Do()
+// 				if err != nil {
+// 					log.Println("Quota err:", err)
+// 				}else {
+// 					log.Println("Quota err:", linebot.EventTypeMessage)
+// 				}								
 				if message.Text == "計時"{
 					t1 := time.NewTimer(10 * time.Second)
 					timer := "時間到"
