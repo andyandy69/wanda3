@@ -69,9 +69,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 // 					log.Print(err)
 // 					}
 					<- t1.C
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪!")).Do(); err != nil {
-					log.Print(err)
-					}
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪!")).Do();
 					<- t1.C
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪汪汪!!!")).Do(); err != nil {
 					log.Print(err)
