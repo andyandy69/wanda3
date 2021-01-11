@@ -59,11 +59,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 // 				}								
 				if message.Text == "我要看妞妞"{
 					t1 := time.NewTimer(3 * time.Second)
-					message = [{
+					message := {
 					  "type": "image",
 					  "originalContentUrl": "https://i.imgur.com/z5yOT1e.jpg",
 					  "previewImageUrl": "https://i.imgur.com/z5yOT1e.jpg"
-					}];
+					}
 					<- t1.C
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪!"+message)).Do(); err != nil {
 					log.Print(err)
