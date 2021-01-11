@@ -65,7 +65,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					}
 				}
 				if message.Text == "叫我起床"{
-					t1 := time.NewTimer(25 * time.Second)
+					t1 := time.NewTimer(20 * time.Second)
 					<- t1.C
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("起床！！！"), linebot.NewImageMessage("https://i.imgur.com/URlBkOk.jpg" , "https://i.imgur.com/URlBkOk.jpg")).Do(); err != nil {
 					log.Print(err)
