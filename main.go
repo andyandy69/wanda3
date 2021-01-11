@@ -60,7 +60,13 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if message.Text == "我要看妞妞"{
 					t1 := time.NewTimer(3 * time.Second)
 					<- t1.C
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪!"), linebot.NewImageMessage("https://i.imgur.com/z5yOT1e.jpg" , "https://i.imgur.com/z5yOT1e.jpg")).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪！"), linebot.NewImageMessage("https://i.imgur.com/z5yOT1e.jpg" , "https://i.imgur.com/z5yOT1e.jpg")).Do(); err != nil {
+					log.Print(err)
+					}
+				else message.Text == "早安"{
+					t1 := time.NewTimer(25 * time.Second)
+					<- t1.C
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("快起床！！！")).Do(); err != nil {
 					log.Print(err)
 					}
 				}
