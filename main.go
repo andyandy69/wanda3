@@ -64,14 +64,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 // 					  "originalContentUrl": "https://i.imgur.com/z5yOT1e.jpg",
 // 					  "previewImageUrl": "https://i.imgur.com/z5yOT1e.jpg"
 // 					}
-// 					<- t1.C
-// 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪!"+message)).Do(); err != nil {
-// 					log.Print(err)
-// 					}
 					<- t1.C
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪!")).Do();
-					<- t1.C
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪汪汪!!!")).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪!"+message)).Do(); err != nil {
 					log.Print(err)
 					}
 				}
