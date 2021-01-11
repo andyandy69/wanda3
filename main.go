@@ -65,7 +65,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					  "previewImageUrl": "https://i.imgur.com/z5yOT1e.jpg"
 					}
 					<- t1.C
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message)).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage("汪!"), linebot.NewImageMessage("https://i.imgur.com/z5yOT1e.jpg" , "https://i.imgur.com/z5yOT1e.jpg")).Do(); err != nil {
 					log.Print(err)
 					}
 				}
