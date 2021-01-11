@@ -64,7 +64,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					log.Print(err)
 					}
 				}
-				else message.Text == "早安"{
+				if message.Text == "早安"{
 					t1 := time.NewTimer(25 * time.Second)
 					<- t1.C
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("快起床！！！")).Do(); err != nil {
