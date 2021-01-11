@@ -58,16 +58,16 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 // 					log.Println("Quota err:", linebot.EventTypeMessage)
 // 				}								
 				if message.Text == "我要看妞妞"{
-					t1 := time.NewTimer(3 * time.Second)
+					t1 := time.NewTimer(5 * time.Second)
 					<- t1.C
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪！"), linebot.NewImageMessage("https://i.imgur.com/z5yOT1e.jpg" , "https://i.imgur.com/z5yOT1e.jpg")).Do(); err != nil {
 					log.Print(err)
 					}
 				}
-				if message.Text == "早安"{
+				if message.Text == "叫我起床！"{
 					t1 := time.NewTimer(25 * time.Second)
 					<- t1.C
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("快起床！！！")).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("起床！！！"), linebot.NewImageMessage("https://i.imgur.com/URlBkOk.jpg" , "https://i.imgur.com/URlBkOk.jpg")).Do(); err != nil {
 					log.Print(err)
 					}
 				}
