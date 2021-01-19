@@ -19,6 +19,7 @@ import (
 	"os"
 // 	"strconv"
 	"time"
+	"math/rand"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
@@ -58,9 +59,19 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 // 					log.Println("Quota err:", linebot.EventTypeMessage)
 // 				}								
 				if message.Text == "我要看妞妞"{
-					t1 := time.NewTimer(5 * time.Second)
+					t1 := time.NewTimer(3 * time.Second)
+					rand.Seed(time.Now().Unix())
+					image := []string{
+						"https://i.imgur.com/z5yOT1e.jpg",
+						"https://i.imgur.com/Wxa4lzR.jpg",
+						"https://i.imgur.com/NPQy2Cn.jpg",
+						"https://i.imgur.com/VjV59Dk.jpg",
+						"https://i.imgur.com/fGvy47i.jpg",
+						"https://i.imgur.com/pPQI1LN.jpg",
+						"https://i.imgur.com/pEjnhSy.jpg",
+					}
 					<- t1.C
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪！"), linebot.NewImageMessage("https://i.imgur.com/z5yOT1e.jpg" , "https://i.imgur.com/z5yOT1e.jpg")).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("汪！"), linebot.NewImageMessage(image[rand.Intn(len(answers))] , image[rand.Intn(len(answers))])).Do(); err != nil {
 					log.Print(err)
 					}
 				}
